@@ -1,0 +1,73 @@
+/* ✅ Space between slides — clean, aligned edges */
+.categories_slider .slick-slide {
+  padding: 0 5px; /* Adjust spacing here (10px each side = 20px total gap) */
+}
+
+
+.categories_slider_wrapper{
+  position: relative;
+  max-width: var(--max-width--global); 
+  margin: 0 auto;
+}
+
+.categories_slider {
+  /* width: 100%; */
+  margin: var(--section-gap) auto 10px;
+  position: relative;
+  
+}
+
+
+
+.category_card {
+  padding: 4px;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.category_card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  /* border: 1px solid #ddd; */
+box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.custom-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    background: #4B532090;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    /* border-radius: 50%; */
+    border-radius: 5px;
+    cursor: pointer;
+    transform: translateY(-50%);
+    font-size: 16px;
+    transition: all 0.3s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    z-index: 999;
+    transition: all 0.3s;
+    z-index: 9999 !important;  
+    &:hover{
+        background: #4B5320;
+    }
+}
+
+
+.custom-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.custom-next {
+  right: -5px; /* arrow thoda bahar */
+}
+
+.custom-prev {
+  left: -5px; /* arrow thoda bahar */
+}
