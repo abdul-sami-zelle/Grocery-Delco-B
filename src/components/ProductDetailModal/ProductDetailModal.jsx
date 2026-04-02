@@ -84,25 +84,25 @@ const ProductDetailModal = ({ product, onClose, allProducts }) => {
               <b>Status:</b> {product.is_instock ? "In Stock" : "Out of Stock"}
             </p>
 
-            <p className="price">
+            {/* <p className="price">
               <span className="currency">{product.currency}</span>
               <span className="price-int">{Math.floor(product.price)}</span>
               <span className="price-dec">
                 {String(product.price).split(".")[1] || "00"}
               </span>
               / {product.volume} {product.volumeUnits}
-            </p>
+            </p> */}
 
             <div className="cart-actions">
               {!item ? (
                 <button
                   className="add-btn"
                   onClick={() => {
-                    addToCart(
-                      { ...product, image: `${BASE_URL}${product.image}` },
-                      product.quantityInitial || 1
-                    );
-                    setShowSideCart(true);
+                    // addToCart(
+                    //   { ...product, image: `${BASE_URL}${product.image}` },
+                    //   product.quantityInitial || 1
+                    // );
+                    // setShowSideCart(true);
                   }}
                 >
                   Add to Cart
@@ -125,7 +125,10 @@ const ProductDetailModal = ({ product, onClose, allProducts }) => {
                     )}
                   </button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => increaseQuantity(product._id)}>
+                  <button onClick={() => 
+                    // increaseQuantity(product._id)
+                    {}
+                    }>
                     <MdAdd />
                   </button>
                 </div>
@@ -166,21 +169,21 @@ const ProductDetailModal = ({ product, onClose, allProducts }) => {
                               <button
                                 className="plus-btn"
                                 onClick={(e) => {
-                                  e.stopPropagation();
-                                  setLoadingProduct(sp._id);
-                                  setTimeout(() => {
-                                    addToCart(
-                                      {
-                                        ...sp,
-                                        image: `${BASE_URL}${
-                                          sp.image || sp.thumbImage
-                                        }`,
-                                      },
-                                      sp.quantityInitial || 1
-                                    );
-                                    setShowSideCart(true);
-                                    setLoadingProduct(null);
-                                  }, 500);
+                                  // e.stopPropagation();
+                                  // setLoadingProduct(sp._id);
+                                  // setTimeout(() => {
+                                  //   addToCart(
+                                  //     {
+                                  //       ...sp,
+                                  //       image: `${BASE_URL}${
+                                  //         sp.image || sp.thumbImage
+                                  //       }`,
+                                  //     },
+                                  //     sp.quantityInitial || 1
+                                  //   );
+                                  //   setShowSideCart(true);
+                                  //   setLoadingProduct(null);
+                                  // }, 500);
                                 }}
                               >
                                 <IoAddOutline className="icon-white"/>
@@ -207,8 +210,8 @@ const ProductDetailModal = ({ product, onClose, allProducts }) => {
                               <span>{spItem.quantity}</span>
                               <button
                                 onClick={(e) => {
-                                  e.stopPropagation();
-                                  increaseQuantity(sp._id);
+                                  // e.stopPropagation();
+                                  // increaseQuantity(sp._id);
                                 }}
                               >
                                 <MdAdd />
@@ -219,13 +222,13 @@ const ProductDetailModal = ({ product, onClose, allProducts }) => {
                       </div>
 
                       <p className="product-price">
-                        <span className="currency">{sp.currency}</span>
+                        {/* <span className="currency">{sp.currency}</span>
                         <span className="price-int">
                           {Math.floor(sp.price)}
                         </span>
                         <span className="price-dec">
                           {String(sp.price).split(".")[1] || "00"}
-                        </span>
+                        </span> */}
                       </p>
                       <p className="product-name">{sp.title}</p>
                     </div>

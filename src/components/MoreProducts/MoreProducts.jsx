@@ -164,20 +164,20 @@ const MoreProducts = () => {
                                 <button
                                   className="plus-btn"
                                   onClick={(e) => {
-                                    e.stopPropagation();
-                                    setLoadingProduct(product._id);
-                                    setTimeout(() => {
-                                      addToCart(
-                                        {
-                                          ...product,
-                                          _id: product._id,
-                                          image: `${BASE_URL}${product.image}`,
-                                        },
-                                        product.quantityInitial || 1
-                                      );
-                                      setShowSideCart(true);
-                                      setLoadingProduct(null);
-                                    }, 1000);
+                                    // e.stopPropagation();
+                                    // setLoadingProduct(product._id);
+                                    // setTimeout(() => {
+                                    //   addToCart(
+                                    //     {
+                                    //       ...product,
+                                    //       _id: product._id,
+                                    //       image: `${BASE_URL}${product.image}`,
+                                    //     },
+                                    //     product.quantityInitial || 1
+                                    //   );
+                                    //   setShowSideCart(true);
+                                    //   setLoadingProduct(null);
+                                    // }, 1000);
                                   }}
                                 >
                                   <IoAddOutline className="icon-white" />
@@ -217,8 +217,8 @@ const MoreProducts = () => {
 
                                 <button
                                   onClick={(e) => {
-                                    e.stopPropagation();
-                                    increaseQuantity(product._id);
+                                    // e.stopPropagation();
+                                    // increaseQuantity(product._id);
                                   }}
                                 >
                                   <MdAdd />
@@ -227,11 +227,11 @@ const MoreProducts = () => {
                             )}
                           </div>
                         </div>
-                        <p className="product-price">
+                        {/* <p className="product-price">
                           <span className="currency">{product.currency}</span>
                           <span className="price-int">{intPart}</span>
                           <span className="price-dec">{decPart}</span>
-                        </p>
+                        </p> */}
 
                         <p className="product-name">{product.title}</p>
                       </div>

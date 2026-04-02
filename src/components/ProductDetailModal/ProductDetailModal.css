@@ -205,3 +205,22 @@
   font-size: 20px;
   filter: drop-shadow(0 0 2px rgba(0,0,0,0.6));
 }
+
+@media (max-width: 767px) {
+  .modal-body{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .modal-left{
+    width: 100%;
+  }
+
+  .modal-left img{
+    width: 100%;
+  }
+
+  .product-name {
+margin-top: 60px;
+}
+}

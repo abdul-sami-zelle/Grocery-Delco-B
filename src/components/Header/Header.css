@@ -793,3 +793,31 @@
     width: 35%;
 }
 }
+
+.header-logo.mobile{
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .header-logo.desktop{
+  display: none;
+}
+.header-logo.mobile{
+  display: block;
+}
+.search-container{
+  display: none;
+}
+.topbar-right{
+  display: none;
+}
+.header-logo{
+  width: 160px;
+  height: auto;
+}
+.hamburger-with-heading{
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+}

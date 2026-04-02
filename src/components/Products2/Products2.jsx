@@ -156,20 +156,20 @@ const Products = () => {
                                 <button
                                   className="plus-btn"
                                   onClick={(e) => {
-                                    e.stopPropagation();
-                                    setLoadingProduct(product._id);
-                                    setTimeout(() => {
-                                      addToCart(
-                                        {
-                                          ...product,
-                                          _id: product._id,
-                                          image: `${BASE_URL}${product.image}`,
-                                        },
-                                        product.quantityInitial || 1
-                                      );
-                                      setShowSideCart(true);
-                                      setLoadingProduct(null);
-                                    }, 1000);
+                                    // e.stopPropagation();
+                                    // setLoadingProduct(product._id);
+                                    // setTimeout(() => {
+                                    //   addToCart(
+                                    //     {
+                                    //       ...product,
+                                    //       _id: product._id,
+                                    //       image: `${BASE_URL}${product.image}`,
+                                    //     },
+                                    //     product.quantityInitial || 1
+                                    //   );
+                                    //   setShowSideCart(true);
+                                    //   setLoadingProduct(null);
+                                    // }, 1000);
                                   }}
                                 >
                                   <IoAddOutline className="icon-white" />
@@ -220,13 +220,13 @@ const Products = () => {
                           </div>
                         </div>
                         <p className="product-price">
-                          <span className="currency">{product.currency}</span>
+                          {/* <span className="currency">{product.currency}</span>
                           <span className="price-int">
                             {Math.floor(product.price)}
                           </span>
                           <span className="price-dec">
                             {String(product.price).split(".")[1] || "00"}
-                          </span>
+                          </span> */}
                         </p>
 
                         <p className="product-name">{product.title}</p>

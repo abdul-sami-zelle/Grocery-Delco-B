@@ -61,23 +61,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.products-header span {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
-  color: var(--charcoal);
-}
-.products-header p {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  color: var(--charcoal);
-  cursor: pointer;
-}
+
 .horizontal-line {
   display: block;
   height: 1px;

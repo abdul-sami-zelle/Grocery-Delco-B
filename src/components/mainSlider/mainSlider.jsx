@@ -87,6 +87,8 @@ export default function MainSlider() {
                             style={{ backgroundImage: `url(${slide.image})` }}
                             className="main_slider_content_right"
                         />
+
+                        <img className="main_slider_content_right_image_mob" src={slide.image} alt="" />
                     </div>
                 ))}
             </div>

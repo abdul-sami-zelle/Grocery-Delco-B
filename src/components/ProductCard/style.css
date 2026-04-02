@@ -151,16 +151,11 @@
 
 @media (max-width: 768px) {
   .product-card-container {
-    width: 164px;
+    width: 220px;
   }
-  .product-card {
-    padding: 0;
-    width: 140px;
-    /* min-height: 0; */
-    gap: 8px;
-  }
+
   .product-card img {
-    height: 136px;
+    height: 230px;
     aspect-ratio: 1/1;
   }
   .product-info {
@@ -192,7 +187,7 @@
   }
 
   .add-to-cart {
-    height: 50px;
+    height: 35px;
     font-size: var(--fs-14);
     padding: 11px 15px;
   }

@@ -48,3 +48,10 @@
     background-color: transparent;
     cursor: pointer;
 }
+
+
+@media (max-width: 768px) {
+.ft_banner{
+    display: none;
+}
+}

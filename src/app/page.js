@@ -15,6 +15,7 @@ import HeroSection2 from "@/components/HeroSection2/HeroSection";
 import Departments2 from "@/components/Department2/departments";
 import FtBanner from "@/components/footerBanner/ftBanner";
 import MainSlider from "@/components/mainSlider/mainSlider";
+import Footer_2 from "@/components/footer_2/footer";
 
 export default function Home() {
   const [saleBgColor, setSaleBgColor] = useState("");
@@ -55,7 +56,7 @@ export default function Home() {
 
 
 
-          <Footer />
+          <Footer_2 />
         </div>
         <SideCart />
       </div>

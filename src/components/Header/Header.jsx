@@ -150,7 +150,12 @@ export default function Header({ onDeptClick, onDiscountClick }) {
               }} href="https://delcofarmersmarket.com">
                 <img
                   src="/assets/Images/header-logo.png"
-                  className="header-logo"
+                  className="header-logo desktop"
+                  alt="Delco Farmers Market"
+                />
+                <img
+                  src="/assets/Images/header-logo2.png"
+                  className="header-logo mobile"
                   alt="Delco Farmers Market"
                 />
               </a>
@@ -298,7 +303,7 @@ export default function Header({ onDeptClick, onDiscountClick }) {
           </div>
         )}
       </header>
-      <div className="sub-header">
+      {/* <div className="sub-header">
         <div className="sub-header-container">
           <div className="sub-header-logo-container dropdown">
             <img
@@ -342,18 +347,6 @@ export default function Header({ onDeptClick, onDiscountClick }) {
                       ))}
                     </ul>
                   </div>
-                  {/* <div className="" style={{ flex: 1 }}>
-                    <ul>
-                      <span>Trending</span>
-                      {trendDepartments.map((dept) => (
-                        <li key={dept._id} onClick={() => {
-                          onDeptClick(dept._id);   // parent ko inform karega
-                        }}>
-                          {dept.name}
-                        </li>
-                      ))}
-                    </ul>
-                  </div> */}
                 </div>
               </div>
             </div>
@@ -465,9 +458,6 @@ export default function Header({ onDeptClick, onDiscountClick }) {
 
             <span style={{ color: "lightgray", fontSize: "20px" }}>|</span>
             <a href="#">Black Friday</a>
-
-            {/* <a href="#">Past Purchases</a> */}
-            {/* <a href="#">Repeat Items</a> */}
           </div>
 
           <div className="sub-header-right">
@@ -505,7 +495,7 @@ export default function Header({ onDeptClick, onDiscountClick }) {
           </div>
         </div>
         <div className="overlay"></div>
-      </div>
+      </div> */}
       {activeModal === "delivery" && (
         <DeliveryModal onClose={() => setActiveModal(null)} />
       )}

@@ -80,7 +80,7 @@ export default function ProductCard({
             />
 
             <div className="product-info">
-              {!product.hidePrice && (
+              {/* {!product.hidePrice && (
                 <p className="price">
                   {product.currency}
                   {product.price.toFixed(2)}
@@ -91,7 +91,7 @@ export default function ProductCard({
                     </span>
                   )}
                 </p>
-              )}
+              )} */}
               <h4 className="name" 
               // onClick={handleNameClick}
               >
@@ -108,21 +108,22 @@ export default function ProductCard({
               <button
                 className="add-to-cart"
                 onClick={(e) => {
-                  e.stopPropagation();
-                  setLoadingProduct(product._id);
-                  setTimeout(() => {
-                    addToCart(
-                      {
-                        ...product,
-                        _id: product._id,
-                        image: `${BASE_URL}${product.image}`,
-                      },
-                      product.quantityInitial || 1
-                    );
-                    setShowSideCart(true);
-                    setLoadingProduct(null);
-                  }, 800);
-                }}
+                  // e.stopPropagation();
+                  // setLoadingProduct(product._id);
+                  // setTimeout(() => {
+                  //   addToCart(
+                  //     {
+                  //       ...product,
+                  //       _id: product._id,
+                  //       image: `${BASE_URL}${product.image}`,
+                  //     },
+                  //     product.quantityInitial || 1
+                  //   );
+                  //   setShowSideCart(true);
+                  //   setLoadingProduct(null);
+                  // }, 800);
+                }
+              }
               >
                 Add to Cart
               </button>

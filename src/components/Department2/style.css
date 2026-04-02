@@ -1,73 +1,93 @@
-/* ✅ Space between slides — clean, aligned edges */
+/* ✅ Space between slides */
 .categories_slider .slick-slide {
-  padding: 0 5px; /* Adjust spacing here (10px each side = 20px total gap) */
+  padding: 0 5px;
+  box-sizing: border-box;
 }
 
-
-.categories_slider_wrapper{
+.categories_slider_wrapper {
   position: relative;
-  max-width: var(--max-width--global); 
+  max-width: var(--max-width--global);
+  width: 100%;
   margin: 0 auto;
 }
 
 .categories_slider {
-  /* width: 100%; */
+  width: 100%;
   margin: var(--section-gap) auto 10px;
   position: relative;
-  
 }
 
-
-
+/* Category Card */
 .category_card {
   padding: 4px;
   text-align: center;
   cursor: pointer;
-
 }
 
 .category_card img {
   width: 100%;
   height: auto;
   border-radius: 8px;
-  /* border: 1px solid #ddd; */
-box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+/* Arrows */
 .custom-arrow {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    background: #4B532090;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    /* border-radius: 50%; */
-    border-radius: 5px;
-    cursor: pointer;
-    transform: translateY(-50%);
-    font-size: 16px;
-    transition: all 0.3s;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    z-index: 999;
-    transition: all 0.3s;
-    z-index: 9999 !important;  
-    &:hover{
-        background: #4B5320;
-    }
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9999;
+  background: #4b532090;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s;
 }
-
 
 .custom-arrow:hover {
-  background: rgba(0, 0, 0, 0.7);
+  background: #4b5320;
 }
 
 .custom-next {
-  right: -5px; /* arrow thoda bahar */
+  right: -5px;
 }
 
 .custom-prev {
-  left: -5px; /* arrow thoda bahar */
+  left: -5px;
+}
+
+.mobile_view_slider_depts{
+  display: none;
+}
+
+/* ✅ Mobile arrow adjust */
+@media (max-width: 768px) {
+  .custom-next {
+    right: 0;
+  }
+  .custom-prev {
+    left: 0;
+  }
+
+  .desktop_view_slider_depts{
+    display: none;
+  }
+
+  .mobile_view_slider_depts{
+    display: block;
+  }
+}
+
+.categories_slider .slick-slider {
+  width: 100% !important;
+}
+
+.categories_slider {
+  width: 100%;
+  overflow: hidden;
 }
