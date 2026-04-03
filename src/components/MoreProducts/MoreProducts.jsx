@@ -11,6 +11,7 @@ import { MdAdd } from "react-icons/md";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlineDelete } from "react-icons/ai";
 import ProductDetailModal from "../ProductDetailModal/ProductDetailModal";
+import ComingSoonPopup from "../comingSoon/comingSoon";
 
 const MoreProducts = () => {
   const [sections, setSections] = useState([]);
@@ -30,6 +31,8 @@ const MoreProducts = () => {
     decreaseQuantity,
     setShowSideCart,
   } = useContext(CartContext);
+
+  const [isOpen,setIsOpen] = useState(false)
 
   const getCartItem = (id) => cart.find((item) => item._id === id);
 
@@ -121,7 +124,7 @@ const MoreProducts = () => {
             <div key={section._id} className="section-block2">
               <div className="products-header">
                 <span>{section.sec_name}</span>
-                <p>
+                <p onClick={()=>{setIsOpen(true)}}>
                   See more <FaChevronRight  size={12} />
                 </p>
               </div>
@@ -148,7 +151,7 @@ const MoreProducts = () => {
                       <div
                         className="product-card"
                         key={product._id}
-                        onClick={() => handleProductClick(product)}
+                        onClick={() => setIsOpen(true)}
                       >
                         <div className="product-Image">
                           <img
@@ -248,15 +251,7 @@ const MoreProducts = () => {
               </div>
             </div>
           ))}
-      {showModal && selectedProduct && (
-        <ProductDetailModal
-          product={selectedProduct}
-          onClose={(newProduct) => {
-            newProduct ? handleProductClick(newProduct) : setShowModal(false);
-          }}
-          allProducts={similarProducts}
-        />
-      )}
+      <ComingSoonPopup isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
     </div>
   );
 };

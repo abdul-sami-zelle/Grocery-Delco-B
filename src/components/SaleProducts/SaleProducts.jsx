@@ -14,6 +14,7 @@ import {
 import { CartContext } from "../../context/addToCart";
 import ProductDetailModal from "../ProductDetailModal/ProductDetailModal";
 import ProductCard from "../ProductCard/ProductCard";
+import ComingSoonPopup from "../comingSoon/comingSoon";
 
 const SaleProducts = ({ scrollToSection }) => {
   const [container, setContainer] = useState(null);
@@ -60,6 +61,7 @@ const SaleProducts = ({ scrollToSection }) => {
   }, []);
 
   const sectionRefs = useRef({});
+  const [isOpen,setIsOpen] = useState(false)
 
   useEffect(() => {
     if (scrollToSection && sectionRefs.current[scrollToSection]) {
@@ -129,7 +131,7 @@ const SaleProducts = ({ scrollToSection }) => {
               <div className="sales-container">
                 <div className="sales-header">
                   <span>{section?.sec_name}</span>
-                  <p>
+                  <p onClick={()=>{setIsOpen(true)}}>
                     See more <FaChevronRight  size={12} />
                   </p>
                 </div>
@@ -169,7 +171,7 @@ const SaleProducts = ({ scrollToSection }) => {
 
                           return (
 
-                            <div key={item?._id} onClick={() => handleProductClick(item)}>
+                            <div key={item?._id} onClick={() => setIsOpen(true)}>
                               <ProductCard product={item} allProducts={section?.products} />
                             </div>
                           );
@@ -191,15 +193,7 @@ const SaleProducts = ({ scrollToSection }) => {
         );
       })}
 
-      {showModal && selectedProduct && (
-        <ProductDetailModal
-          product={selectedProduct}
-          onClose={(newProduct) => {
-            newProduct ? handleProductClick(newProduct) : setShowModal(false);
-          }}
-          allProducts={similarProducts}
-        />
-      )}
+      <ComingSoonPopup isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
     </div>
   );
 };

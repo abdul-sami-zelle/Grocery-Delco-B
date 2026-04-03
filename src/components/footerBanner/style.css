@@ -12,9 +12,18 @@
     margin: 0 auto var(--section-gap);
 }
 
+.ft_banner.des_view {
+    display: block;
+}
+
+.ft_banner.mob_view {
+    display: none;
+}
+
 .ft_banner img {
     width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .content_ft_banner {
@@ -49,9 +58,13 @@
     cursor: pointer;
 }
 
+@media (max-width: 767px) {
 
-@media (max-width: 768px) {
-.ft_banner{
-    display: none;
-}
+    .ft_banner > .des_view {
+        display: none;
+    }
+
+    .ft_banner > .mob_view {
+        display: block;
+    }
 }

@@ -15,6 +15,8 @@ import { AiOutlineDelete } from "react-icons/ai";
 import ProductDetailModal from "../ProductDetailModal/ProductDetailModal";
 import ProductCard from "../ProductCard/ProductCard";
 import Departments2 from "../Department2/departments";
+import Departments3 from "../Department2/departments2";
+import ComingSoonPopup from "../comingSoon/comingSoon";
 
 const Products = ({ scrollToSection , onClick }) => {
   const [sections, setSections] = useState([]);
@@ -26,6 +28,8 @@ const Products = ({ scrollToSection , onClick }) => {
   const [showModal, setShowModal] = useState(false);
 
   const scrollRefs = useRef({});
+
+  const [isOpen,setIsOpen] = useState(false)
 
   const {
     cart,
@@ -91,7 +95,9 @@ const Products = ({ scrollToSection , onClick }) => {
 
   return (
     <div>
-      {departments.length > 0 && <Departments2 departments={departments} onClick={onClick} />}
+      {departments.length > 0 && <div className="depts_mob"><Departments3 departments={departments} onClick={onClick} /></div>}
+      {departments.length > 0 && <div className="depts_des"><Departments2 departments={departments} onClick={onClick} /></div>}
+
       <div className="main-bg">
         <div className="products-container">
           {loading
@@ -140,7 +146,7 @@ const Products = ({ scrollToSection , onClick }) => {
               <div ref={(el) => (sectionRefs.current[section?.categories[0]._id] = el)} key={section?._id} className="section-block">
                 <div className="products-header">
                   <span>{section.sec_name}</span>
-                  <p>
+                  <p onClick={()=>{setIsOpen(true)}}>
                     See more <FaChevronRight  size={12} />
                   </p>
                 </div>
@@ -161,7 +167,7 @@ const Products = ({ scrollToSection , onClick }) => {
                     {section.products.map((product) => {
                       const item = getCartItem(product._id);
                       return (
-                        <div key={product?._id}   onClick={() => handleProductClick(product)}>
+                        <div key={product?._id}   onClick={() => setIsOpen(true)}>
                           <ProductCard product={product} allProducts={section?.products} />
 
                         </div>
@@ -178,15 +184,7 @@ const Products = ({ scrollToSection , onClick }) => {
                 </div>
               </div>
             ))}
-          {showModal && selectedProduct && (
-            <ProductDetailModal
-              product={selectedProduct}
-              onClose={(newProduct) => {
-                newProduct ? handleProductClick(newProduct) : setShowModal(false);
-              }}
-              allProducts={similarProducts}
-            />
-          )}
+          <ComingSoonPopup isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
         </div>
       </div>
     </div>
