@@ -13,6 +13,7 @@ import { getSalesProductData, getCategories, getHeaderDepartments } from "@/lib/
 import LocationModal from "../LocationModal/LocationModal";
 import DeliveryModal from "../DeliveryModal/DeliveryModal";
 import ComingSoonPopup from "../comingSoon/comingSoon";
+import ComingSoonPopup2 from "../comingSoon2/comingSoon";
 
 export default function Header({ onDeptClick, onDiscountClick }) {
   const [showModal, setShowModal] = useState(false);
@@ -196,8 +197,13 @@ export default function Header({ onDeptClick, onDiscountClick }) {
                         <li
                           key={i}
                           onClick={() => {
-                            setSelectedCategory(item.name);
-                            setShowDelcoMenu(false);
+                            setShowSidebar(false);
+
+                            if (item.name?.toLowerCase() === "grocery") {
+                              window.location.href = item.url;
+                            } else {
+                              setIsOpen(true); // Coming Soon popup
+                            }
                           }}
                         >
                           {item.name}
@@ -314,7 +320,12 @@ export default function Header({ onDeptClick, onDiscountClick }) {
                         className="sidebar-dept-item"
                         onClick={() => {
                           setShowSidebar(false);
-                          window.location.href = dept.url;
+
+                          if (dept.name?.toLowerCase() === "grocery") {
+                            window.location.href = dept.url;
+                          } else {
+                            setIsOpen(true); // Coming Soon popup
+                          }
                         }}
                       >
                         <img
@@ -378,9 +389,29 @@ export default function Header({ onDeptClick, onDiscountClick }) {
                   <div className="" style={{ flex: 1 }}>
                     <ul>
                       {headerDepts && headerDepts?.map((dept) => (
-                        <li key={dept._id}>
-                          <a href={dept.url}><img style={{ width: "20px", height: "20px", marginRight: "10px" }} src={"https://api.delcofarmersmarket.com" + dept.image} alt="" srcset="" /> {dept.name}</a>
-                        </li>
+                     
+                          <li key={dept._id}>
+                            <a
+                              href={dept.name?.toLowerCase() === "grocery" ? dept.url :"#"}
+                              onClick={(e) => {
+                                e.preventDefault();
+
+                                if (dept.name?.toLowerCase() === "grocery") {
+                                  window.location.href = dept.url;
+                                } else {
+                                  setIsOpen(true); // Coming Soon popup
+                                }
+                              }}
+                              style={{ display: "flex", alignItems: "center" }}
+                            >
+                              <img
+                                style={{ width: "20px", height: "20px", marginRight: "10px" }}
+                                src={"https://api.delcofarmersmarket.com" + dept.image}
+                                alt={dept.name}
+                              />
+                              {dept.name}
+                            </a>
+                          </li>
                       ))}
                     </ul>
                   </div>
@@ -436,7 +467,7 @@ export default function Header({ onDeptClick, onDiscountClick }) {
         <LocationModal onClose={() => setActiveModal(null)} />
       )}
 
-      <ComingSoonPopup isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
+      <ComingSoonPopup2 isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
     </>
   );
 }

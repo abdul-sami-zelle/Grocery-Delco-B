@@ -12,11 +12,11 @@
     margin: 0 auto var(--section-gap);
 }
 
-.ft_banner.des_view {
+.ft_banner .des_view {
     display: block;
 }
 
-.ft_banner.mob_view {
+.ft_banner .mob_view {
     display: none;
 }
 

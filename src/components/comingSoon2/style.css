@@ -1,0 +1,105 @@
+.cs-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+}
+
+.cs-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 0px; 
+  padding: 60px 40px;
+  position: relative;
+  text-align: center;
+  border-top: 8px solid #6a733a; /* Olive Green */
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+.cs-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.cs-brand-tag {
+  color: #6a733a;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.cs-title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #1a1a1a;
+  margin: 0;
+  line-height: 1;
+}
+
+.cs-subtitle {
+  color: #666;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  margin-top: 10px;
+}
+
+/* Spacer replaces the timer row for visual balance */
+.cs-spacer {
+  height: 2px;
+  background: #f0f0f0;
+  width: 50px;
+  margin: 25px auto;
+}
+
+.cs-date {
+  font-size: 1.4rem;
+  color: #1a1a1a;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.cs-desc {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cs-confirm-btn {
+  background: #6a733a;
+  color: white;
+  border: none;
+  padding: 16px 40px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cs-confirm-btn:hover {
+  background: #545c2e;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(106, 115, 58, 0.3);
+}
+
+@media (max-width: 480px) {
+  .cs-title { font-size: 2.2rem; }
+  .cs-card { padding: 50px 20px; }
+}

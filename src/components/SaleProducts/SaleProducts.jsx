@@ -15,6 +15,7 @@ import { CartContext } from "../../context/addToCart";
 import ProductDetailModal from "../ProductDetailModal/ProductDetailModal";
 import ProductCard from "../ProductCard/ProductCard";
 import ComingSoonPopup from "../comingSoon/comingSoon";
+import ComingSoonPopup2 from "../comingSoon2/comingSoon";
 
 const SaleProducts = ({ scrollToSection }) => {
   const [container, setContainer] = useState(null);
@@ -193,7 +194,7 @@ const SaleProducts = ({ scrollToSection }) => {
         );
       })}
 
-      <ComingSoonPopup isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
+      <ComingSoonPopup2 isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
     </div>
   );
 };

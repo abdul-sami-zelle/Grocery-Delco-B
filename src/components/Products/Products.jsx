@@ -17,6 +17,7 @@ import ProductCard from "../ProductCard/ProductCard";
 import Departments2 from "../Department2/departments";
 import Departments3 from "../Department2/departments2";
 import ComingSoonPopup from "../comingSoon/comingSoon";
+import ComingSoonPopup2 from "../comingSoon2/comingSoon";
 
 const Products = ({ scrollToSection , onClick }) => {
   const [sections, setSections] = useState([]);
@@ -184,7 +185,7 @@ const Products = ({ scrollToSection , onClick }) => {
                 </div>
               </div>
             ))}
-          <ComingSoonPopup isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
+          <ComingSoonPopup2 isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
         </div>
       </div>
     </div>
