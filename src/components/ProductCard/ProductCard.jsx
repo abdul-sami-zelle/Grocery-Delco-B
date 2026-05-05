@@ -72,58 +72,29 @@ export default function ProductCard({
     <>
       <div className="product-card-container">
         <div className="product-card">
-          <div className="product-card-inner">
+          <div className="product-card-inner" onClick={handleImageClick}>
             <img
               src={`${BASE_URL}${product?.image}`}
-              alt={product.title}
-              // onClick={handleImageClick}
+              alt={product?.title || "Product Image"}
+              onError={(e) => {
+                e.target.src = "/assets/Images/missed-image.png";
+                e.target.onerror = null;
+              }}
             />
 
             <div className="product-info">
-              {/* {!product.hidePrice && (
-                <p className="price">
-                  {product.currency}
-                  {product.price.toFixed(2)}
-                  {product.mode === "weight" && (
-                    <span className="lb">
-                      / {product.volume}
-                      {product.volumeUnits}
-                    </span>
-                  )}
-                </p>
-              )} */}
-              <h4 className="name" 
-              // onClick={handleNameClick}
-              >
+              <h4 className="name" onClick={handleNameClick}>
                 {product.title}
               </h4>
             </div>
           </div>
 
-          {/* 🔥 Add to Cart button with qty control */}
           {!item ? (
             loadingProduct === product._id ? (
               <div className="loader"></div>
             ) : (
               <button
                 className="add-to-cart"
-                onClick={(e) => {
-                  // e.stopPropagation();
-                  // setLoadingProduct(product._id);
-                  // setTimeout(() => {
-                  //   addToCart(
-                  //     {
-                  //       ...product,
-                  //       _id: product._id,
-                  //       image: `${BASE_URL}${product.image}`,
-                  //     },
-                  //     product.quantityInitial || 1
-                  //   );
-                  //   setShowSideCart(true);
-                  //   setLoadingProduct(null);
-                  // }, 800);
-                }
-              }
               >
                 Add to Cart
               </button>

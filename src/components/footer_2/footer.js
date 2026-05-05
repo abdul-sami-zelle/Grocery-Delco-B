@@ -21,16 +21,17 @@ const Footer_2 = () => {
                             <div className="logo-wrapper">
                                 <img src='/assets/Images/header-logo2.png' />
                             </div>
-                            <h1 className="footer-headline desktop">
-                                We Provide the <br /> goods that are <br /> best for you.
-                            </h1>
-                            <h1 className="footer-headline mobile">
-                                We Provide the goods that are <br /> best for you.
-                            </h1>
+                           <h1 className="footer-headline desktop">
+                           {/* Rooted in <br /> Quality Global <br /> in Taste. */}
+                           Rooted in Quality <br />  Global in  Taste.
+                        </h1>
+                        <h1 className="footer-headline mobile">
+                            Rooted in Quality <br />  Global in  Taste.
+                        </h1>
                         </div>
 
                         <div className="footer-subscribe">
-                            <div className="hours">Monday - Sunday 10am - 10pm</div>
+                            <div className="hours">Monday - Sunday 8am - 8pm</div>
                             <form className="subscribe-form">
                                 <input type="email" placeholder="Enter your email" />
                                 <button type="submit">Subscribe</button>

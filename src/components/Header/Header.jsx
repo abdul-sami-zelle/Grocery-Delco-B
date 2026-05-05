@@ -26,7 +26,21 @@ export default function Header({ onDeptClick, onDiscountClick }) {
   const [discounts, setDiscounts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [activeModal, setActiveModal] = useState(null);
+const [popupTitle, setPopupTitle] = useState("");
 
+const handleDeptClickLogic = (dept) => {
+  const name = dept.name?.toLowerCase();
+  if (
+    name === "grocery" ||
+    name === "butcher shop" ||
+    name === "prepared food"
+  ) {
+    window.location.href = dept.url;
+  } else {
+    setPopupTitle(dept.name); // Popup mein name dikhane ke liye
+    setIsOpen(true); // Popup open karne ke liye
+  }
+};
   const slides = [
     "/assets/Images/1.jpg",
     "/assets/Images/2.jpg",
@@ -194,21 +208,16 @@ export default function Header({ onDeptClick, onDiscountClick }) {
                   <div className="delco-menu">
                     <ul>
                       {departments.map((item, i) => (
-                        <li
-                          key={i}
-                          onClick={() => {
-                            setShowSidebar(false);
-
-                            if (item.name?.toLowerCase() === "grocery") {
-                              window.location.href = item.url;
-                            } else {
-                              setIsOpen(true); // Coming Soon popup
-                            }
-                          }}
-                        >
-                          {item.name}
-                        </li>
-                      ))}
+  <li
+    key={i}
+    onClick={() => {
+      setShowDelcoMenu(false); // Menu close karein
+      handleDeptClickLogic(item); // Naya logic function
+    }}
+  >
+    {item.name}
+  </li>
+))}
                     </ul>
                   </div>
                 )}
@@ -312,31 +321,26 @@ export default function Header({ onDeptClick, onDiscountClick }) {
                   />
                 </div>
 
-                {showSidebarDepts && (
-                  <div className="sidebar-dropdown-content">
-                    {headerDepts?.map((dept) => (
-                      <div
-                        key={dept._id}
-                        className="sidebar-dept-item"
-                        onClick={() => {
-                          setShowSidebar(false);
-
-                          if (dept.name?.toLowerCase() === "grocery") {
-                            window.location.href = dept.url;
-                          } else {
-                            setIsOpen(true); // Coming Soon popup
-                          }
-                        }}
-                      >
-                        <img
-                          src={`https://api.delcofarmersmarket.com${dept.image}`}
-                          alt={dept.name}
-                        />
-                        <span>{dept.name}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
+{showSidebarDepts && (
+  <div className="sidebar-dropdown-content">
+    {headerDepts?.map((dept) => (
+      <div
+        key={dept._id}
+        className="sidebar-dept-item"
+        onClick={() => {
+          setShowSidebar(false); // Sidebar band karein
+          handleDeptClickLogic(dept); // Naya logic function call karein
+        }}
+      >
+        <img
+          src={`https://api.delcofarmersmarket.com${dept.image}`}
+          alt={dept.name}
+        />
+        <span>{dept.name}</span>
+      </div>
+    ))}
+  </div>
+)}
               </div>
 
 
@@ -388,32 +392,23 @@ export default function Header({ onDeptClick, onDiscountClick }) {
                 <div className="explore-container depts">
                   <div className="" style={{ flex: 1 }}>
                     <ul>
-                      {headerDepts && headerDepts?.map((dept) => (
-                     
-                          <li key={dept._id}>
-                            <a
-                              href={dept.name?.toLowerCase() === "grocery" ? dept.url :"#"}
-                              onClick={(e) => {
-                                e.preventDefault();
-
-                                if (dept.name?.toLowerCase() === "grocery") {
-                                  window.location.href = dept.url;
-                                } else {
-                                  setIsOpen(true); // Coming Soon popup
-                                }
-                              }}
-                              style={{ display: "flex", alignItems: "center" }}
-                            >
-                              <img
-                                style={{ width: "20px", height: "20px", marginRight: "10px" }}
-                                src={"https://api.delcofarmersmarket.com" + dept.image}
-                                alt={dept.name}
-                              />
-                              {dept.name}
-                            </a>
-                          </li>
-                      ))}
-                    </ul>
+  {headerDepts && headerDepts?.map((dept) => (
+    <li 
+      key={dept._id} 
+      style={{ cursor: "pointer" }} 
+      onClick={() => handleDeptClickLogic(dept)} // Redirect ya popup ka control yahan se hoga
+    >
+      <div style={{ display: "flex", alignItems: "center", padding: "5px 0" }}>
+        <img 
+          style={{ width: "20px", height: "20px", marginRight: "10px" }} 
+          src={"https://api.delcofarmersmarket.com" + dept.image} 
+          alt={dept.name} 
+        /> 
+        {dept.name}
+      </div>
+    </li>
+  ))}
+</ul>
                   </div>
                 </div>
               </div>
@@ -467,7 +462,7 @@ export default function Header({ onDeptClick, onDiscountClick }) {
         <LocationModal onClose={() => setActiveModal(null)} />
       )}
 
-      <ComingSoonPopup2 isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
+      <ComingSoonPopup2 heading={popupTitle} isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
     </>
   );
 }
