@@ -28,7 +28,7 @@ export default function Header({ onDeptClick, onDiscountClick }) {
   const [activeModal, setActiveModal] = useState(null);
 const [popupTitle, setPopupTitle] = useState("");
 
-const handleDeptClickLogic = (dept) => {s
+const handleDeptClickLogic = (dept) => {
  window.location.href = dept.url;
 };
   const slides = [
