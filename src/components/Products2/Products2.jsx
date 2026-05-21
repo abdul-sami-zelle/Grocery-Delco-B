@@ -15,6 +15,7 @@ import { AiOutlineDelete } from "react-icons/ai";
 import ProductDetailModal from "../ProductDetailModal/ProductDetailModal";
 import ComingSoonPopup from "../comingSoon/comingSoon";
 import ComingSoonPopup2 from "../comingSoon2/comingSoon";
+import ComingSoonPopupMain from "../comingSoon3/comingSoon";
 
 const Products = () => {
   const [sections, setSections] = useState([]);
@@ -246,7 +247,7 @@ const [isOpen,setIsOpen] = useState(false)
               </div>
             </div>
           ))}
-     <ComingSoonPopup2 isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
+     <ComingSoonPopupMain isOpen={isOpen} onClose={() => { setIsOpen(false) }} />
     </div>
   );
 };

@@ -28,18 +28,8 @@ export default function Header({ onDeptClick, onDiscountClick }) {
   const [activeModal, setActiveModal] = useState(null);
 const [popupTitle, setPopupTitle] = useState("");
 
-const handleDeptClickLogic = (dept) => {
-  const name = dept.name?.toLowerCase();
-  if (
-    name === "grocery" ||
-    name === "butcher shop" ||
-    name === "prepared food"
-  ) {
-    window.location.href = dept.url;
-  } else {
-    setPopupTitle(dept.name); // Popup mein name dikhane ke liye
-    setIsOpen(true); // Popup open karne ke liye
-  }
+const handleDeptClickLogic = (dept) => {s
+ window.location.href = dept.url;
 };
   const slides = [
     "/assets/Images/1.jpg",
