@@ -1012,8 +1012,6 @@
   width: 18px;
   height: 18px;
   border-radius: 4px;
-  color: white;
-  filter: invert(1);
 }
 
 .sub-header-right-buttons.for-mob-view {
@@ -1159,13 +1157,23 @@
 }
 
 .MainMenuDelcoTopContainersss {
-  background-color: white;
-  width: 100%;
-  gap: 20px;
-  justify-content: space-between;
-  border-top: 1px solid white;
-  color: var(--black);
-  display: flex;
+    background-color: white;
+    width: 100%;
+    gap: 20px;
+    justify-content: space-between;
+    border-top: 1px solid white;
+    color: var(--black);
+    display: flex;
+    overflow-x: auto;
+    padding: 7px 0;
+
+    /* Hide scrollbar */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+}
+
+.MainMenuDelcoTopContainersss::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 
 .departments_Headersss {
@@ -1176,17 +1184,18 @@
   position: relative; /* Sliding line coordinate setup ke liye zaroori hai */
 }
 
-/* Base style for individual items */
 .sidebar-dept-item {
   display: flex;
   align-items: center;
   gap: 8px;
   cursor: pointer;
   position: relative;
-  padding: 4px 30px; /* consistent track positioning */
+  padding: 4px 20px; /* consistent track positioning */
   user-select: none;
   z-index: 100;
+  flex-shrink: 0;
 }
+
 
 .sidebar-dept-item:hover{
   color: var(--dark-medium-green);
